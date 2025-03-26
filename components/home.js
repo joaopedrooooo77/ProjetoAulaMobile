@@ -1,6 +1,6 @@
 //import ImagemFundo from "projetox/assets/ImagemFundo";
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Home (){
   return(
@@ -12,6 +12,8 @@ export default function Home (){
         Já pensou em um encontro com essa lenda do entretenimento?
       </Text>
 
+      <MaterialIcons name="add-home" size={24} color="black" />
+      
       <View style={styles.imgContainerEvenly}>
         <Image 
           style={styles.img} 

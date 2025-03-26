@@ -1,6 +1,8 @@
 import { Text, View, StyleSheet, ImageBackground, TextInput } from 'react-native';
 import { Button } from 'react-native-web';
 
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
 const ImagemFundo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4HScmHvgqzr65tzS1B5RFvAmKlZhu2jElg&s';
 
 export default function Login({navigation}) {
@@ -10,12 +12,14 @@ export default function Login({navigation}) {
       <ImageBackground style={styles.imageBackground} source={{ uri: ImagemFundo }}>
         <Text style={[styles.title, styles.textCenter]}>Acesso Exclusivo</Text>
         <Text style={[styles.text, styles.textCenter]}>Entre agora para aproveitar o conteúdo exclusivo de Júlio Cocielo!</Text>
-
+        
+        <MaterialIcons name="login" size={40} color="black" />
         <View style={styles.formContainer}>
           <TextInput
             style={styles.input}
             placeholder="Email"
             placeholderTextColor="#888"
+            
           />
           <TextInput
             style={styles.input}
