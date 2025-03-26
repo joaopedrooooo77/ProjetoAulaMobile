@@ -3,7 +3,7 @@ import { Button } from 'react-native-web';
 
 const ImagemFundo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4HScmHvgqzr65tzS1B5RFvAmKlZhu2jElg&s';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
 
 <View style={styles.container}>
@@ -23,7 +23,7 @@ export default function Login() {
             secureTextEntry
             placeholderTextColor="#888"
           />
-          <Button title="Logar" onPress={() => {}} color="#fff" style={styles.button} />
+          <Button title="Logar" onPress={() => {navigation.navigate('Home') }} color="#fff" style={styles.button} />
         </View>
       </ImageBackground>
     </View>
