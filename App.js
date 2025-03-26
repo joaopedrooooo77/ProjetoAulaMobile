@@ -10,15 +10,26 @@ import Login from './components/login';
 
 
 export default function App() {
-const BottomTab = createBottomTabNavigator();
 
+const Bottom = createBottomTabNavigator();
 
   return (
     <NavigationContainer>
-      <BottomTab.Navigator>
-        <BottomTab.Screen name='Login' component={Login}/>
-        <BottomTab.Screen name='Home' component={Home}/>
-      </BottomTab.Navigator>
+      <Bottom.Navigator
+      initialRouteName = 'Login'
+      screenOptions={{
+        tabBarActiveBackgroundColor: '#aaff00',
+        tabBarActiveTintColor: '#0022ff',
+        tabBarInactiveBackgroundColor: '#ff0044',
+        tabBarInactiveTintColor: '#00ffe1',
+        headerStyle:{backgroundColor:'#00ffe1'},
+        headerTintColor:'#0022ff',
+      }} 
+      >
+        
+        <Bottom.Screen name='Login' component={Login}/>
+        <Bottom.Screen name='Home' component={Home}/>
+      </Bottom.Navigator>
     </NavigationContainer>
   );
 }
