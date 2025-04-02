@@ -7,10 +7,15 @@ import { useState } from "react";
 export default function Counter (){
     const [contador, setContador] = useState(0);
     function Aumentar (){
+
         setContador(contador + 1)
     }
     function Diminuir (){
+        if (contador > 0){
         setContador(contador - 1)
+        }
+
+
     }
     return(
         <View style = {styles.container}>
