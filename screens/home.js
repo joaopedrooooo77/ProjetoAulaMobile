@@ -7,9 +7,9 @@ export default function Home (){
     <View style={styles.container}>
 
 
-      <Text style={[styles.title, styles.textCenter]}>JÚLIO COCIELO</Text>
+      <Text style={[styles.title, styles.textCenter]}>Júlio Cocielo</Text>
       <Text style={[styles.subtitle, styles.textCenter]}>
-        Já pensou em um encontro com essa lenda do entretenimento?
+        Já pensou em um encontro com essa lenda do entretenimento
       </Text>
 
       <MaterialIcons name="add-home" size={24} color="black" />
@@ -36,7 +36,7 @@ export default function Home (){
       </View>
 
       <Text style={[styles.text, styles.textCenter]}>
-        Venha saber mais sobre o influenciador e empresário Júlio Cocielo, uma pessoa que transformou sua vida, divertindo pessoas!
+        Venha saber mais sobre o influenciador e empresário Júlio Cocielo, uma pessoa que me deixa excitado todos os dias!
       </Text>
 
       <TouchableOpacity style={styles.button}>

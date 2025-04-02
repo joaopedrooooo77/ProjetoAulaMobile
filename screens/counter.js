@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Button, TouchableOpacity } from "react-native-web";
+import { StyleSheet, View, Text, Button, TouchableOpacity, TextInput } from "react-native-web";
 import { useState } from "react";
 
 
@@ -33,6 +33,19 @@ export default function Counter (){
                     </TouchableOpacity>
 
                 </View>
+                <View style = {styles.TextInput}>
+                    <TextInput 
+                    placeholder="Nome"
+                    placeholderTextColor={'#87CEEB'}
+                    style={styles.TextInput}
+                    />
+
+                    <TextInput 
+                    placeholder="Email"
+                    placeholderTextColor={'#87CEEB'}
+                    style={styles.TextInput}
+                    />
+                </View>
         </View>
 
     )
@@ -66,8 +79,14 @@ const styles =StyleSheet.create({
         textAlign: 'center',
         fontSize: 150,
         color: '#1C1C1C',
-
-
+    },
+    TextInput:{
+        textAlign: 'center',
+        fontSize: 30,
+        color: '#1C1C1C',
+        height: '20%',
+        justifyContent: 'space-around',
+        borderRadius: '20%',
     }
 
 })
