@@ -27,7 +27,7 @@ export default function Login({navigation}) {
             secureTextEntry
             placeholderTextColor="#888"
           />
-          <Button title="Logar" onPress={() => {navigation.navigate('Home') }} color="#fff" style={styles.button} />
+          <Button title="Logar" onPress={() => {navigation.navigate('HomeTab') }} color="#fff" style={styles.button} />
         </View>
       </ImageBackground>
     </View>
