@@ -1,11 +1,9 @@
 import { StyleSheet, View, Text, Button, TouchableOpacity, TextInput } from "react-native-web";
 import { useState } from "react";
 
-
-
-
 export default function Counter (){
     const [contador, setContador] = useState(0);
+
     function Aumentar (){
 
         setContador(contador + 1)

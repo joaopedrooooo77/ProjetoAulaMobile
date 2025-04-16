@@ -6,7 +6,6 @@ export default function Home (){
   return(
     <View style={styles.container}>
 
-
       <Text style={[styles.title, styles.textCenter]}>Júlio Cocielo</Text>
       <Text style={[styles.subtitle, styles.textCenter]}>
         Já pensou em um encontro com essa lenda do entretenimento
