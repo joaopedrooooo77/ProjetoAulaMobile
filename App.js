@@ -1,4 +1,3 @@
-// Only import react-native-gesture-handler on native platforms
 import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,13 +5,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-
-
 import Home from './screens/home';
 import Login from './screens/login';
 import Feed from './screens/feed';
 import Counter from './screens/counter';
-
+import Produtos from './screens/produtos';
 
 function BottomTabs () {
 
@@ -31,8 +28,16 @@ function BottomTabs () {
         headerTintColor:'#0022ff',
       }} 
       >
-        
-        <Bottom.Screen name='Home' component={Home}
+
+        <BottomTabs.Screen name = 'produtos' component= {Produtos}
+                options={{
+                  tabBarIcon: () => (
+                  <MaterialIcons name="produtos" size={40} color="black" />
+                  ),
+                }}
+                />
+                
+        <Bottom.Screen name='home' component={Home}
         options={{
           tabBarIcon: () => (
           <MaterialIcons name="home" size={40} color="black" />
@@ -40,7 +45,7 @@ function BottomTabs () {
         }}
         />
 
-        <Bottom.Screen name='Feed' component={Feed}
+        <Bottom.Screen name='feed' component={Feed}
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="feed" size={40} color="black" />
@@ -48,7 +53,7 @@ function BottomTabs () {
         }}
         />
 
-        <Bottom.Screen name='Counter' component={Counter}
+        <Bottom.Screen name='counter' component={Counter}
         options={{
           tabBarIcon: () => (
             <MaterialIcons name="counter" size={40} color="black" />

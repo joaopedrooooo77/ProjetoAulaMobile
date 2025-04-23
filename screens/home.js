@@ -35,7 +35,7 @@ export default function Home (){
       </View>
 
       <Text style={[styles.text, styles.textCenter]}>
-        Venha saber mais sobre o influenciador e empresário Júlio Cocielo, uma pessoa que me deixa excitado todos os dias!
+        Venha saber mais sobre o influenciador e empresário Júlio Cocielo!
       </Text>
 
       <TouchableOpacity style={styles.button}>

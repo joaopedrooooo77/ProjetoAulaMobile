@@ -11,9 +11,7 @@ export default function Feed (){
         <Button
         title= 'saiba mais'
         color= '#0000FF'
-        />
-
-            
+        />  
         </View>
 
     )
