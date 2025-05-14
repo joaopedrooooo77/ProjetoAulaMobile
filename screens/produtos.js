@@ -1,14 +1,29 @@
 import {View, Text, StyleSheet, FlatList, Image} from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { db } from "../controller";
+import { collection, getDocs} from 'firebase/firestore';
 
-export default function Produtos (){
-    const [produtos, setProdutos] =  useState([
-        {id:1, nome: 'Camiseta do Criciúma', valor: 199.99, imagem: 'https://d9aearf180tto.cloudfront.net/Custom/Content/Products/71/22/71221_of-camisa-jogo-3-s-num-cec-adl-pr-19001-c0693_l8_638579520089570336.webp'},
-        {id:2, nome: 'Bermuda Volt', valor: 99.99, imagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3b141Lr3TU0FDtTbEeJwSE5UnV7bUdgwZIA&s'},
-        {id:3, nome: 'Chuteira Nike', valor: 349.99, imagem: 'https://d2r9epyceweg5n.cloudfront.net/stores/002/341/698/rte/chuteira-nike-mercurial-superfly-9-elite-fg-rising-gem-%20cinza-preta.png'},
-        {id:4, nome: 'Pro Socks', valor: 30.00, imagem: 'https://cdn.dooca.store/852/products/ftghfgh_640x640+fill_ffffff.png?v=1695932655&webp=0'},
+export default function Produtos () {
+    const [produtos, setProdutos] =  useState([]);
 
-    ])
+        useEffect(() => {
+            async function carregarProdutos(){
+                try{
+                    const querySnapshot = await getDocs (collection(db, 'produtos'));
+                    const lista = [];
+                    querySnapshot.forEach((doc) => {
+                        list.push({id: doc.id, ...doc.data()});
+                    });
+                    setProdutos(lista);
+                }
+                catch (error){
+                    console.log('erro ao buscar produtos', error);
+                }
+                }
+                carregarProdutos();
+        }, []);
+        
+
     return(
         <View style = {styles.container}>
             {/* ARRAY COM MAP <Text style ={styles.text}>

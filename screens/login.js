@@ -1,11 +1,25 @@
-import { Text, View, StyleSheet, ImageBackground, TextInput } from 'react-native';
-import { Button } from 'react-native-web';
+import { Button, Text, View, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { signInWithEmailAndPassword} from 'firebase/auth';  
+import { Auth } from '../controller';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 const ImagemFundo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4HScmHvgqzr65tzS1B5RFvAmKlZhu2jElg&s';
 
 export default function Login({navigation}) {
+
+  const [email,setEmail] = useState ("");
+  const[senha, setSenha] = useState ("");
+
+  const VerificaUser = () => {
+    signInWithEmailAndPassword (Auth,email,senha).then
+    (userCredential => {console.log('usúario logado', userCredential.user.email);})
+
+  .catch((error)=>{
+    console.log('erro ao logar', error.message);
+  });
+  }
   return (
 
 <View style={styles.container}>
@@ -18,16 +32,26 @@ export default function Login({navigation}) {
           <TextInput
             style={styles.input}
             placeholder="Email"
-            placeholderTextColor="#888"
+            placeholderTextColor="black"
+
             
           />
           <TextInput
             style={styles.input}
             placeholder="Senha"
             secureTextEntry
-            placeholderTextColor="#888"
+            placeholderTextColor="black"
           />
-          <Button title="Logar" onPress={() => {navigation.navigate('HomeTab') }} color="#fff" style={styles.button} />
+          {/* <{ Button title="Logar" onPress={() => {navigation.navigate('HomeTab') }} color="black" style={styles.button}  /> */}
+          {/* <Button title="Cadastre-se" onPress={() => {navigation.navigate('cadastro') }} color="black" style={styles.button} /> */}
+        
+          <TouchableOpacity onPress={VerificaUser}>
+            <Text style={styles.txtcadastlog}>Logar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => {navigation.navigate('cadastro')}}>
+            <Text style={styles.txtcadastcad}>Cadastrar</Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -49,20 +73,20 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    color: '#f0a500',
+    color: 'orange',
     fontWeight: 'bold',
     marginBottom: 20,
   },
   text: {
     fontSize: 16,
-    color: 'white',
-    marginBottom: 20,
+    color: 'black',
+    marginBottom: 40,
   },
   textCenter: {
     textAlign: 'center',
   },
   formContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'black',
     borderRadius: 10,
     padding: 20,
     width: '100%',
@@ -84,4 +108,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0a500',
     borderRadius: 5,
   },
+  txtcadastcad:{
+    fontSize: 15,
+    color: 'orange',
+  },
+  txtcadastlog:{
+    fontSize: 15,
+    color: 'orange',
+  }
 });
