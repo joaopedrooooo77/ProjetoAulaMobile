@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { ProviderCart } from './components/ProviderCart'; 
 
 import Home from './screens/home';
 import Login from './screens/login';
@@ -11,27 +12,30 @@ import Feed from './screens/feed';
 import Counter from './screens/counter';
 import Produtos from './screens/produtos';
 import Register from './screens/register';
-import cadastroproduto from './screens/cadastroproduto';
+import Cadastroproduto from './screens/cadastroproduto';
 
 function BottomTabs () {
 
   const Bottom = createBottomTabNavigator();
 
+
     return (
 
       <Bottom.Navigator
-
       screenOptions={{
-        tabBarActiveBackgroundColor: '#aaff00',
-        tabBarActiveTintColor: '#0022ff',
-        tabBarInactiveBackgroundColor: '#ff0044',
-        tabBarInactiveTintColor: '#00ffe1',
-        headerStyle:{backgroundColor:'#00ffe1'},
-        headerTintColor:'#0022ff',
+        tabBarActiveBackgroundColor: 'gray',
+        tabBarStyle: {backgroundColor: 'gray'},
+        tabBarLabelStyle: {fontSize: 20},
+        tabBarActiveTintColor: 'gray',
+        tabBarInactiveBackgroundColor: 'gray',
+        tabBarInactiveTintColor: 'gray',
+        headerStyle:{backgroundColor:'gray'},
+        headerTintColor:'gray',
+
       }} 
       >
 
-        <BottomTabs.Screen name = 'produtos' component= {Produtos}
+        <Bottom.Screen name = 'produtos' component= {Produtos}
                 options={{
                   tabBarIcon: () => (
                   <MaterialIcons name="produtos" size={40} color="black" />
@@ -62,7 +66,14 @@ function BottomTabs () {
           ),
         }}
         />
-      
+
+        <Bottom.Screen name='cadastroproduto' component={Cadastroproduto}
+        options={{
+          tabBarIcon: () => (
+            <MaterialIcons name="cadastroproduto" size={40} color="black" />
+          ),
+        }}
+        />
       </Bottom.Navigator>
 
   );
@@ -73,15 +84,15 @@ export default function App() {
   const Stack = createStackNavigator();
 
   return(
-
+    <ProviderCart>
     <NavigationContainer>
       <Stack.Navigator>
-
         <Stack.Screen name = 'login' component = {Login}/>
-        <Stack.Screen options = {{headerShown:false}} name = 'HomeTab' component= {BottomTabs}/>
+        <Stack.Screen options = {{headerShown:false}} name='HomeTab' component={BottomTabs}/>
         <Stack.Screen name = 'cadastro' component = {Register}/>
       </Stack.Navigator>
     </NavigationContainer>
+    </ProviderCart>
   )
 }
 

@@ -1,15 +1,14 @@
 import { Button, View, StyleSheet, TextInput } from 'react-native';
 import { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { Auth } from '../controller';
+import { db } from '../controller';
 import {collection, addDoc} from 'firebase/firestore';
 
 
-export default function cadastroproduto({navigation}) {
+export default function Cadastroproduto({navigation}) {
 
     const [nome,setNome] = useState ("");
     const[valor, setValor] = useState ("");
-    const[imagem, setIMagem] = useState ("");
+    const[imagem, setImagem] = useState ("");
 
     const CadastrarProduto = async () => {
       try{
@@ -44,7 +43,6 @@ export default function cadastroproduto({navigation}) {
           <TextInput
             style={styles.input}
             placeholder="Preco"
-            secureTextEntry
             placeholderTextColor="black"
             value ={valor}
             onChangeText={setValor}
@@ -53,67 +51,37 @@ export default function cadastroproduto({navigation}) {
                     <TextInput
             style={styles.input}
             placeholder="Imagem"
-            secureTextEntry
             placeholderTextColor="black"
             value ={imagem}
-            onChangeText={setIMagem}
+            onChangeText={setImagem}
 
           />
    
-          <Button title="Cadastrar Produto" onPress={cadastroproduto} color="#fff"  />
+          <Button title="Cadastrar Produto" onPress={CadastrarProduto} color="orange"  />
         </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles =  StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'orange',
-  },
-  imageBackground: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-    padding: 40,
-  },
-  title: {
-    fontSize: 36,
-    color: '#f0a500',
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    color: 'white',
-    marginBottom: 20,
-  },
-  textCenter: {
-    textAlign: 'center',
+    backgroundColor: '#000000',
   },
   formContainer: {
-    backgroundColor: 'black',
-    borderRadius: 10,
+    width: '80%',
+    backgroundColor: '#FF8C00',
     padding: 20,
-    width: '100%',
-    maxWidth: 350,
-    alignItems: 'center',
+    borderRadius: 10,
   },
   input: {
-    width: '100%',
-    height: 50,
-    backgroundColor: 'orange',
-    borderRadius: 5,
-    marginBottom: 15,
-    paddingLeft: 15,
-    fontSize: 16,
-  },
-  button: {
-    width: '100%',
-    height: 50,
-    backgroundColor: 'orange',
-    borderRadius: 5,
+    height: 40,
+    borderColor: '#FF8C00',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingLeft: 10,
+    color:'black'
   },
 });

@@ -7,31 +7,29 @@ export default function Feed (){
             <Text style= {styles.Text}>Erros do passado significam acertos no futuro</Text>
 
             <Image style={styles.Image} source={{uri: 'https://conteudo.imguol.com.br/c/esporte/f3/2021/08/11/julio-cocielo-apresenta-programa-galera-esporte-clube-na-rede-tv-1628712572627_v2_1x1.jpg'}} />
-        
-        <Button
-        title= 'saiba mais'
-        color= '#0000FF'
-        />  
         </View>
 
     )
-
 }
 
-const styles =StyleSheet.create({
+const styles = StyleSheet.create({
     container:{
-        flex : 1,
-        justifyContent : 'space-evenly' ,
-        algniItems: 'center' ,
-
-    },
-    Image:{
-
-    width: 450,
-    height: 450,
-
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'black',
     },
     Text:{
-        fontSize: 50,
-    }
+        fontSize: 20,
+        color: 'black',
+        textAlign: 'center',
+        margin: 10,
+    },
+    Image:{
+        alignSelf: 'center',
+        width: 200,
+        height: 200,
+        borderRadius: 10,
+        marginTop: 10,
+    },
 })

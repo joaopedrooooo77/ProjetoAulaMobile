@@ -37,77 +37,39 @@ export default function Home (){
         Venha saber mais sobre o influenciador e empresário Júlio Cocielo!
       </Text>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Logar</Text>
-      </TouchableOpacity>
-
   </View>
     )
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
+  container:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#000000',
   },
-  imageBackground: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-    padding: 40,
+  title:{
+    fontSize:30,
+    color:'#FFA500',
   },
-  title: {
-    fontSize: 38,
-    fontWeight: 'bold',
-    color: '#FF6347',
-    marginBottom: 10,
+  subtitle:{
+    fontSize:20,
+    color:'#FFA500',
   },
-  subtitle: {
-    fontSize: 20,
-    color: 'white',
-    marginBottom: 20,
+  text:{
+    fontSize:15,
+    color:'#FFA500',
   },
-  text: {
-    fontSize: 16,
-    color: 'white',
-    textAlign: 'center',
-    marginTop: 20,
+  textCenter:{
+    textAlign:'center',
   },
-  button: {
-    backgroundColor: '#FF6347',
-    paddingVertical: 12,
-    paddingHorizontal: 40,
-    borderRadius: 8,
-    marginTop: 20,
+  imgContainerEvenly:{
+    flexDirection:'row',
+    justifyContent:'space-evenly',
+    width:'100%',
   },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  textCenter: {
-    textAlign: 'center',
-  },
-  img: {
-    width: 130,
-    height: 130,
-    borderRadius: 10,
-    marginBottom: 10,
-  },
-  imgContainerEvenly: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginBottom: 20,
-  },
-  input: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    marginBottom: 20,
-    paddingLeft: 15,
-    fontSize: 16,
-    color: '#333',
-  },
-});
+  img:{
+    width:150,
+    height:150,
+    borderRadius:10,
+  }
+})

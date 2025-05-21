@@ -3,10 +3,6 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword} from 'firebase/auth';  
 import { Auth } from '../controller';
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-
-const ImagemFundo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4HScmHvgqzr65tzS1B5RFvAmKlZhu2jElg&s';
-
 export default function Login({navigation}) {
 
   const [email,setEmail] = useState ("");
@@ -14,106 +10,66 @@ export default function Login({navigation}) {
 
   const VerificaUser = () => {
     signInWithEmailAndPassword (Auth,email,senha).then
-    (userCredential => {console.log('usúario logado', userCredential.user.email);})
+    (userCredential => {console.log('usúario logado', userCredential.user.email);
+      navigation.navigate('HomeTab');
+    })
 
   .catch((error)=>{
     console.log('erro ao logar', error.message);
   });
   }
   return (
+    <View style={styles.container}>
+        <Text style={styles.title}>Login Usúario</Text>
 
-<View style={styles.container}>
-      <ImageBackground style={styles.imageBackground} source={{ uri: ImagemFundo }}>
-        <Text style={[styles.title, styles.textCenter]}>Acesso Exclusivo</Text>
-        <Text style={[styles.text, styles.textCenter]}>Entre agora para aproveitar o conteúdo exclusivo de Júlio Cocielo!</Text>
-        
-        <MaterialIcons name="login" size={40} color="black" />
-        <View style={styles.formContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            placeholderTextColor="black"
+        <View style={styles.txtcadastcad}>
+            <TextInput style={styles.input}
+                placeholder="Login"
+                value={email}
+                onChangeText={setEmail}
 
-            
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            secureTextEntry
-            placeholderTextColor="black"
-          />
-          {/* <{ Button title="Logar" onPress={() => {navigation.navigate('HomeTab') }} color="black" style={styles.button}  /> */}
-          {/* <Button title="Cadastre-se" onPress={() => {navigation.navigate('cadastro') }} color="black" style={styles.button} /> */}
-        
-          <TouchableOpacity onPress={VerificaUser}>
-            <Text style={styles.txtcadastlog}>Logar</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => {navigation.navigate('cadastro')}}>
-            <Text style={styles.txtcadastcad}>Cadastrar</Text>
-          </TouchableOpacity>
+            />
+            <TextInput style={styles.txtcadastcad}
+                placeholder="Senha"
+                value={senha}
+                onChangeText={setSenha}
+                secureTextEntry={true}
+            />
         </View>
-      </ImageBackground>
+
+        <TouchableOpacity onPress={VerificaUser}>
+            <Text style={styles.txtcadastcad}>Logar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+            <Text style={styles.txtcadastcad} onPress={() => navigation.navigate('register')}>Cadastre-se</Text>
+        </TouchableOpacity>
     </View>
-  );
+);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  imageBackground: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-    padding: 40,
-  },
-  title: {
-    fontSize: 36,
-    color: 'orange',
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    color: 'black',
-    marginBottom: 40,
-  },
-  textCenter: {
-    textAlign: 'center',
-  },
-  formContainer: {
-    backgroundColor: 'black',
-    borderRadius: 10,
-    padding: 20,
-    width: '100%',
-    maxWidth: 350,
-    alignItems: 'center',
-  },
-  input: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    marginBottom: 15,
-    paddingLeft: 15,
-    fontSize: 16,
-  },
-  button: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#f0a500',
-    borderRadius: 5,
-  },
-  txtcadastcad:{
-    fontSize: 15,
-    color: 'orange',
-  },
-  txtcadastlog:{
-    fontSize: 15,
-    color: 'orange',
-  }
+const styles =  StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#000000',
+    },
+    title: {
+        fontSize: 30,
+        color: '#FFA500',
+        marginBottom: 20,
+    },
+    input: {
+        width: 300,
+        height: 40,
+        borderColor: '#FFA500',
+        borderWidth: 1,
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        color:'#FFA500'
+    },
+    txtcadastcad:{
+      color:'#FFA500'
+    }
 });
